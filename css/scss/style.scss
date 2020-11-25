@@ -101,6 +101,7 @@ a{
 
             @include device(phone){
                 min-width: rem(400);
+                margin-right: rem(16);
             }
             &:focus{
                 outline: none;
