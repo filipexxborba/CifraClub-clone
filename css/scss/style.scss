@@ -1,0 +1,259 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@function rem($size, $context: 16){
+    @return $size / $context + rem;
+}
+
+@function em($size, $context: 16){
+    @return $size / $context + em;
+}
+
+.container{
+    max-width: rem(960);
+    margin: 0 auto;
+}
+
+img{
+    max-width: 100%;
+}
+
+ul li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: currentColor;
+}
+
+// Layout: def
+.header{
+    background-color: white;
+    width: 100%;
+    z-index: 9;
+}
+
+.l-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: rem(16, 16);
+
+    img{
+        width: rem(64);
+        border-radius: 50%;
+        margin-right: rem(16);
+    }
+
+    h2{
+        text-transform: uppercase;
+        color: rgb(255, 123, 0);
+    }
+
+    form{
+        margin-left: rem(64);
+        input{
+            display: inline-block;
+            font-size: em(14);
+            font-family: Arial, Helvetica, sans-serif;
+            padding: rem(8) rem(16);
+            min-width: rem(300);
+            border-radius: rem(8);
+            color: grey;
+            border: 1px solid rgba($color: grey, $alpha: .3);
+            transition: border-color .3s;
+
+            &:focus{
+                outline: none;
+                border-color: rgba($color: grey, $alpha: .5);
+            }
+        }
+    }
+}
+
+// Top Cifras
+
+.l-topcifras{
+    &__nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: rem(8) 0px;
+        margin: 0px rem(16) 0px rem(16);
+        border-bottom: 1px solid rgba($color: grey, $alpha: .2);
+
+        h2{
+            color: grey;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(255, 123, 0);
+            font-weight: bold;
+            transition: text-decoration 1s ease-in;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__lista{
+        &__ul{
+            &__item{
+                margin: rem(16) 0px;
+                padding: rem(8) rem(16);
+                display: flex;
+                align-items: flex-start;
+                transition: background-color .3s;
+                border-radius: rem(4);
+                position: relative;
+
+                span{
+                    position: absolute;
+                    right: rem(16);
+                    top: rem(25);
+                    font-weight: bold;
+                    font-size: em(18);
+                    color: rgb(255, 123, 0);
+                    opacity: 0;
+                    transition: opacity .3s;
+                }
+
+                h3{
+                    font-size: em(24);
+                    color: grey;
+                    margin-right: rem(32);
+                    opacity: .5;
+                }
+
+                &__desc{
+                    h2{
+                        line-height: 1.5em;
+                    }
+                    p{
+                        font-size: em(18);
+                        opacity: .3;
+                    }
+                }
+                &:hover{
+                    background-color: rgb(238, 238, 238);
+                }
+
+                &:hover span{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+// Top artistas
+
+.l-topartistas{
+    &__nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: rem(8) 0px;
+        margin: 0px rem(16) rem(16) rem(16);
+        border-bottom: 1px solid rgba($color: grey, $alpha: .2);
+        
+
+        h2{
+            color: grey;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(255, 123, 0);
+            font-weight: bold;
+            transition: text-decoration 1s;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__lista{
+        &__ul{
+            &__item{
+                margin: rem(16) 0px;
+                padding: rem(16) rem(16);
+                display: flex;
+                align-items: flex-start;
+                border-radius: rem(4);
+                transition: background-color .3s;
+                position: relative;
+
+                span{
+                    position: absolute;
+                    right: rem(16);
+                    top: rem(23);
+                    font-weight: bold;
+                    font-size: em(18);
+                    color: rgb(255, 123, 0);
+                    opacity: 0;
+                    transition: opacity .3s;
+                }
+
+                h3{
+                    font-size: em(24);
+                    color: grey;
+                    margin-right: rem(32);
+                    opacity: .5;
+                }
+
+                &__desc{
+                    h2{
+                        line-height: 1.5em;
+                    }
+                    p{
+                        font-size: em(18);
+                        opacity: .3;
+                    }
+                }
+                &:hover{
+                    background-color: rgb(238, 238, 238);
+                }
+
+                &:hover span{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+footer{
+    background-color:  rgb(255, 123, 0);
+    padding: rem(16) rem(16);
+    p{
+        color: white;
+    }
+    a{
+        font-weight: bold;
+        transition: text-decoration .3s;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    svg{
+        fill: white;
+        transition: fill .2s;
+        &:hover{
+            fill: black;
+        }
+    }
+}
