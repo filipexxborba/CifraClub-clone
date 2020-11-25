@@ -104,7 +104,7 @@ a{
             transition: border-color .3s;
 
             @include device(phone){
-                min-width: rem(400);
+                min-width: rem(350);
                 margin-right: rem(16);
             }
             &:focus{
