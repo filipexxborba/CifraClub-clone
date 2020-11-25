@@ -13,6 +13,28 @@
     @return $size / $context + em;
 }
 
+$l-device: 1200px;
+$m-device: 760px;
+$s-device: 480px;
+
+@mixin device($size){
+    @if $size == desktop{
+        @media screen and (min-width: #{$l-device}){
+            @content;
+        }
+    }
+    @else if $size == tablet{
+        @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1}){
+            @content;
+        }
+    }
+
+    @else if $size == phone{
+        @media screen and (max-width: #{$m-device - 1}){
+            @content;
+        }
+    }
+}
 .container{
     max-width: rem(960);
     margin: 0 auto;
@@ -44,6 +66,10 @@ a{
     justify-content: space-between;
     padding: rem(16, 16);
 
+    @include device(phone){
+        flex-wrap: wrap;
+    }
+
     img{
         width: rem(64);
         border-radius: 50%;
@@ -57,6 +83,11 @@ a{
 
     form{
         margin-left: rem(64);
+
+        @include device(phone){
+            margin: rem(32) 0px;
+            
+        }
         input{
             display: inline-block;
             font-size: em(14);
@@ -68,6 +99,9 @@ a{
             border: 1px solid rgba($color: grey, $alpha: .3);
             transition: border-color .3s;
 
+            @include device(phone){
+                min-width: rem(400);
+            }
             &:focus{
                 outline: none;
                 border-color: rgba($color: grey, $alpha: .5);
@@ -122,6 +156,10 @@ a{
                     color: rgb(255, 123, 0);
                     opacity: 0;
                     transition: opacity .3s;
+
+                    @include device(phone){
+                        top: rem(20);
+                    }
                 }
 
                 h3{
@@ -134,10 +172,16 @@ a{
                 &__desc{
                     h2{
                         line-height: 1.5em;
+                        @include device(phone){
+                            font-size: em(18);
+                        }
                     }
                     p{
                         font-size: em(18);
                         opacity: .3;
+                        @include device(phone){
+                            font-size: em(14);
+                        }
                     }
                 }
                 &:hover{
@@ -199,6 +243,10 @@ a{
                     color: rgb(255, 123, 0);
                     opacity: 0;
                     transition: opacity .3s;
+
+                    @include device(phone){
+                        top: rem(20);
+                    }
                 }
 
                 h3{
@@ -211,6 +259,9 @@ a{
                 &__desc{
                     h2{
                         line-height: 1.5em;
+                        @include device(phone){
+                            font-size: em(18);
+                        }
                     }
                     p{
                         font-size: em(18);
